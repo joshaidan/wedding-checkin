@@ -49,7 +49,6 @@ while 1:
     screen.fill(colour)
     
     for x in range(18):
-        photos[x].tick()
-        photos[x].draw_photo(screen)
+        photos[x].tick(screen)
 
     pygame.display.flip()

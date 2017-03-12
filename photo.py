@@ -46,10 +46,12 @@ class Photo:
             self.set_photo("media/photo" + str(num) + ".png", self.width, self.height)
             self.fade_in()
 
-    def tick(self):
+    def tick(self, screen):
         if self.fading:
             self.alpha += 1
             if self.alpha >= 255:
                 self.fading = False
         elif random.randint(0,100) == 50:
             self.change_photo()
+        
+        self.draw_photo(screen)
