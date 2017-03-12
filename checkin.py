@@ -38,7 +38,6 @@ for x in range(6):
         photos[i].transform(x,y)
         i += 1
 
-i = 0
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -50,10 +49,7 @@ while 1:
     screen.fill(colour)
     
     for x in range(18):
-        photos[x].setAlpha(i)
-        photos[x].drawPhoto(screen)
+        photos[x].tick()
+        photos[x].draw_photo(screen)
 
     pygame.display.flip()
-    i += 1
-    if i >= 255:
-        i = 0

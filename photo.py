@@ -1,23 +1,55 @@
 import pygame
+import random
+
+NUM_PHOTOS = 3
 
 class Photo:
     """Photo is a photo displayed in the check-in system"""
 
-    def __init__(self, width, height):
-        self.photo = pygame.image.load("media/photo1.bmp").convert()
-        self.photo = pygame.transform.scale(self.photo, (width, height))
-        self.rect = self.photo.get_rect()
+    alpha = 255
+    fading = False
 
+    def __init__(self, width, height):
+        num = random.randint(1, NUM_PHOTOS)
+        self.width = width
+        self.height = height
+        self.set_photo("media/photo" + str(num) + ".png", self.width, self.height)
+        self.rect = self.photo.get_rect()
         self.rect.x = 0
         self.rect.y = 0
-        self.photo.set_alpha(128)
+        self.old_photo = self.photo
 
     def transform(self, col, row):
         self.rect.x = (self.rect.width + 3) * col
         self.rect.y = (self.rect.height + 3) * row
     
-    def drawPhoto(self, screen):
+    def draw_photo(self, screen):
+        self.set_alpha()
+        screen.blit(self.old_photo, self.rect)
         screen.blit(self.photo, self.rect)
 
-    def setAlpha(self, alpha):
-        self.photo.set_alpha(alpha)
+    def set_alpha(self):
+        self.photo.set_alpha(self.alpha)
+
+    def set_photo(self, filename, width, height):
+        self.photo = pygame.image.load(filename).convert()
+        self.photo = pygame.transform.scale(self.photo, (width, height))
+
+    def fade_in(self):
+        self.fading = True
+        self.alpha = 0
+
+    def change_photo(self):
+        if not self.fading:
+            self.old_photo = self.photo
+            num = random.randint(1, NUM_PHOTOS)
+            self.set_photo("media/photo" + str(num) + ".png", self.width, self.height)
+            self.fade_in()
+
+    def tick(self):
+        if self.fading:
+            self.alpha += 1
+            if self.alpha >= 255:
+                self.fading = False
+        elif random.randint(0,100) == 50:
+            self.change_photo()
