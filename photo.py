@@ -14,12 +14,13 @@ class Photo:
         num = random.randint(1, NUM_PHOTOS)
         self.width = width
         self.height = height
+        self.is_logo = logo
 
-        if logo:
+        if self.is_logo:
             self.set_photo("media/logo.png", self.width, self.height)
         else:
             self.set_photo("media/photo" + str(num) + ".png", self.width, self.height)
-            
+
         self.rect = self.photo.get_rect()
         self.rect.x = 0
         self.rect.y = 0
@@ -49,7 +50,7 @@ class Photo:
         self.alpha = 0
 
     def change_photo(self):
-        if not self.fading:
+        if not self.fading and not self.is_logo:
             self.old_photo = self.photo
             num = random.randint(1, NUM_PHOTOS)
             self.set_photo("media/photo" + str(num) + ".png", self.width, self.height)

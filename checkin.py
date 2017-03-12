@@ -28,7 +28,10 @@ def handle_keyboard(key):
 # Intialize photos list
 photos = []
 for i in range(18):
-    _photo = photo.Photo(image_width, image_height)
+    if i == 7:
+        _photo = photo.Photo(image_width, image_height, True)
+    else:
+        _photo = photo.Photo(image_width, image_height)
     photos.append(_photo)
 
 # Layout the photos on the screen
