@@ -25,12 +25,6 @@ def handle_keyboard(key):
     if key == pygame.K_ESCAPE:
         sys.exit()
 
-def display_photo(col, row, alpha):
-    photo_rect.x = (photo_rect.width + 3) * col
-    photo_rect.y = (photo_rect.height + 3) * row
-    photo.set_alpha(alpha)
-    screen.blit(photo, photo_rect)
-
 # Intialize photos list
 photos = []
 for i in range(18):
