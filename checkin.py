@@ -12,6 +12,7 @@ pygame.mouse.set_visible(False)
 screen_width = screen.get_width()
 screen_height = screen.get_height()
 
+# On 1920x1080 works out to 383x359
 image_width = int((screen_width - 3) / 5)
 image_height = int((screen_height - 3) / 3)
 
