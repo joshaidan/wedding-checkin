@@ -41,6 +41,7 @@ for x in range(6):
         photos[i].transform(x,y)
         i += 1
 
+# The main system loop
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
