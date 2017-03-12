@@ -2,7 +2,7 @@ import pygame
 import random
 
 NUM_PHOTOS = 3
-FADE_SPEED = 3
+FADE_SPEED = 1
 
 class Photo:
     """Photo is a photo displayed in the check-in system"""
@@ -10,11 +10,16 @@ class Photo:
     alpha = 255
     fading = False
 
-    def __init__(self, width, height):
+    def __init__(self, width, height, logo=False):
         num = random.randint(1, NUM_PHOTOS)
         self.width = width
         self.height = height
-        self.set_photo("media/photo" + str(num) + ".png", self.width, self.height)
+
+        if logo:
+            self.set_photo("media/logo.png", self.width, self.height)
+        else:
+            self.set_photo("media/photo" + str(num) + ".png", self.width, self.height)
+            
         self.rect = self.photo.get_rect()
         self.rect.x = 0
         self.rect.y = 0
