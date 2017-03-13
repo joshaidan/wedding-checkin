@@ -1,6 +1,7 @@
 import sys
 import pygame
 import photo
+import check_in
 
 pygame.init()
 
@@ -24,6 +25,8 @@ pygame.display.flip()
 def handle_keyboard(key):
     if key == pygame.K_ESCAPE:
         sys.exit()
+    if key == pygame.K_c:
+        check_in.check_in("f39dkdfi")
 
 # Intialize photos list
 photos = []
