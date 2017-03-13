@@ -6,7 +6,7 @@ I'm getting married! Woohoo! The bride & I thought it would be fun to have a che
 ## Platform
 The check-in system will run on a Raspberry Pi connected to a HDMI display. Guests will checkin by tapping a MIFARE Classic RFID card to a RC522 card reader connected to the Pi. I hope to have this housed inside a wooded box of some sort.
 
-# Parts & Software Summary
+## Parts & Software Summary
 - Raspberry Pi
 - MIFARE RFID Cards
 - RC522 card reader
