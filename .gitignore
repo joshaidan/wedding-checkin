@@ -1,3 +1,6 @@
+# Ignore database files
+*.db
+
 # Ignore visual studio code files
 .vscode
 
