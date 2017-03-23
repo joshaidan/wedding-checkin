@@ -4,6 +4,7 @@ import photo
 import check_in
 
 pygame.init()
+pygame.font.init()
 
 size = 0, 0
 
@@ -22,11 +23,15 @@ colour = 0, 0, 0
 screen.fill(colour)
 pygame.display.flip()
 
+# Initialize the check in system
+_check_in = check_in.CheckIn(screen)
+
 def handle_keyboard(key):
+    global _check_in
     if key == pygame.K_ESCAPE:
         sys.exit()
     if key == pygame.K_c:
-        check_in.check_in("f39dkdfi")
+        _check_in.check_in("0011")
 
 # Intialize photos list
 photos = []
