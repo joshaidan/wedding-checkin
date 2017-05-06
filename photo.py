@@ -2,7 +2,7 @@ import pygame
 import random
 
 NUM_PHOTOS = 3
-FADE_SPEED = 1
+FADE_SPEED = 5
 
 class Photo:
     """Photo is a photo displayed in the check-in system"""
@@ -61,7 +61,7 @@ class Photo:
             self.alpha += FADE_SPEED
             if self.alpha >= 255:
                 self.fading = False
-        elif random.randint(0,2000) == 50:
+        elif random.randint(0,1000) == 50:
             self.change_photo()
         
         self.draw_photo(screen)
