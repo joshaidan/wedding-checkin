@@ -63,4 +63,6 @@ while 1:
     for x in range(18):
         photos[x].tick(screen)
 
+    _check_in.watch_check_in()
+
     pygame.display.flip()

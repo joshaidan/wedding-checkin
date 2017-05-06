@@ -1,6 +1,8 @@
 import pygame
 import time
 import sqlite3
+import RPi.GPIO as GPIO
+import MFRC522
 
 conn = sqlite3.connect('checkin.db')
 conn.row_factory = sqlite3.Row
@@ -11,6 +13,7 @@ class CheckIn:
     def __init__(self, screen):
         self.screen = screen
         self.font = pygame.font.SysFont('Helvetica', 30)
+        self.MIFAREReader = MFRC522.MFRC522()
 
     def check_in(self, user_id):
         """Processing a check in"""
@@ -33,3 +36,14 @@ class CheckIn:
 
         pygame.display.flip()
         time.sleep(5)
+
+    def watch_check_in(self):
+        # Scan for a card
+        (status, TagType) = self.MIFAREReader.MFRC522_Request(self.MIFAREReader.PICC_REQIDL)
+
+        if status == self.MIFAREReader.MI_OK:
+            # Card found
+            (status, uid) = self.MIFAREReader.MFRC522_Anticoll()
+            if status == self.MIFAREReader.MI_OK:
+                card_id = str(uid[0]) + str(uid[1]) + str(uid[2]) + str(uid[3])
+                self.check_in(card_id)
