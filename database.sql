@@ -18,7 +18,7 @@ CREATE TABLE tables (
     id int,
     name text,
     number int
-)
+);
 
 INSERT INTO people (id, firstname, lastname, uuid) VALUES (1, 'Brian', 'Jones', '0011');
 ALTER TABLE people ADD table_id INT;
