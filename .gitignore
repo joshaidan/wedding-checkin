@@ -7,6 +7,10 @@
 # Ignore files in the media directory
 media/
 
+# Ignore MacOS stuff
+.DS_Store
+._.DIS_Store
+
 # Standard Python .gitignores
 # Byte-compiled / optimized / DLL files
 __pycache__/
