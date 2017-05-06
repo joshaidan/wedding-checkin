@@ -28,11 +28,11 @@ class CheckIn:
         if not person:
             self.screen.fill((0,0,0))
             text = self.font.render("Sorry, we couldn't find you in the database. Please ask for help.", False, (255,255,255))
-            self.screen.blit(text, (int(self.screen.get_width() / 2), int(self.screen.get_height() / 2)))
+            self.screen.blit(text, (int(self.screen.get_width() / 2 - (text.get_width() / 2)), int(self.screen.get_height() / 2)))
         else:
             self.screen.fill((0,0,0))
             text = self.font.render("Hi %s!" % person['firstname'], False, (255,255,255))
-            self.screen.blit(text, (int(self.screen.get_width() / 2), int(self.screen.get_height() / 2)))
+            self.screen.blit(text, (int(self.screen.get_width() / 2 - (text.get_width() / 2)), int(self.screen.get_height() / 2)))
 
         pygame.display.flip()
         time.sleep(5)
