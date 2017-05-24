@@ -9,7 +9,7 @@ media/
 
 # Ignore MacOS stuff
 .DS_Store
-._.DIS_Store
+._.DS_Store
 
 # Standard Python .gitignores
 # Byte-compiled / optimized / DLL files
