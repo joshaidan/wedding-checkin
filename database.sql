@@ -10,9 +10,14 @@ CREATE TABLE people (
     id int,
     firstname text,
     lastname text,
-    uuid text,
+    group_id text,
     table_id int
 );
+
+CREATE TABLE cards (
+    uuid text,
+    group_id int
+)
 
 CREATE TABLE tables (
     id int,
@@ -20,5 +25,5 @@ CREATE TABLE tables (
     number int
 );
 
-INSERT INTO people (id, firstname, lastname, uuid) VALUES (1, 'Brian', 'Jones', '0011');
-ALTER TABLE people ADD table_id INT;
+INSERT INTO people (id, firstname, lastname, group_id, table_id) VALUES (1, 'Brian', 'Jones', 1, 1);
+INSERT INTO cards (uuid, group_id) VALUES ('144-248-110-133', 1);
