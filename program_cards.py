@@ -34,13 +34,7 @@ for row in rows:
     group_id = row['group_id']
     firstname = row['firstname']
     lastname = row['lastname']
-
-    # if (firstname == 'Jeff' and lastname == 'Jones') or firstname == 'Jeffrey':
-    #     continue
-
-    # if firstname in ['Jeff', 'Jeffrey', 'Jennifer'] and lastname in ['Jones', 'Boschman', 'Anderson']:
-    #     continue
-
+    
     print("Programming card for %s %s" % (firstname, lastname))
     card_id = listen_for_card()
 
