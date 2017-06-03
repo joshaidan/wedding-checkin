@@ -10,6 +10,11 @@ media/
 # Ignore MacOS stuff
 .DS_Store
 ._.DS_Store
+._*
+
+# Ignore guest file
+guests.csv
+label_names.txt
 
 # Standard Python .gitignores
 # Byte-compiled / optimized / DLL files

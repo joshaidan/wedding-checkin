@@ -10,7 +10,7 @@ CREATE TABLE people (
     id int,
     firstname text,
     lastname text,
-    group_id text,
+    group_id int,
     table_id int
 );
 
